@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="primary">
+     <button ion-button menuToggle>  
+      <ion-icon name="menu"></ion-icon>
+      <ion-title>
+      เพิ่มข้อมูล
+      </ion-title>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+   <ion-card *ngFor="let Post of listPost | async | reverse">
+
+     <ion-item>
+       <ion-avatar item-left> 
+            <img src="assets/image/Linux.jpg" />
+       </ion-avatar>
+        <h3> {{Post.name}} </h3>
+        <h6> {{Post.date| date:'medium' }} </h6>
+        <h3>{{Post.detail}}</h3>
+     </ion-item>
+            <hr>
+        <img [src]="Post?.photo"> 
+
+    <ion-card-content>
+       <h3>สถานะ:    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{Post.status}} </h3>
+    </ion-card-content>
+  </ion-card>
+ 
+
+</ion-content>
