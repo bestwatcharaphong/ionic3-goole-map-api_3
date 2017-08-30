@@ -13,9 +13,16 @@ import { HomePage } from '../pages/home/home';
 import {LoginPage} from '../pages/login/login';
 import {LogoutPage} from '../pages/logout/logout';
 import { Home1Page } from '../pages/home1/home1';
+import { Home2Page } from '../pages/home2/home2';
+import { Home3Page } from '../pages/home3/home3';
+import { Home4Page } from '../pages/home4/home4';
+import { Home5Page } from '../pages/home5/home5';
 import { ReversePipe } from '../pipes/reverse/reverse'; 
 import {AddPage} from '../pages/add/add';
 import{ Camera}from '@ionic-native/camera';
+import{Facebook} from '@ionic-native/facebook';
+import firebase from 'firebase';
+
 export const config = {
   apiKey: "AIzaSyCAgLjTHvsckgXo8MI5GmR4_pZBHa9HqgE",
   authDomain: "aaaaaa-d25fd.firebaseapp.com",
@@ -24,6 +31,7 @@ export const config = {
   storageBucket: "aaaaaa-d25fd.appspot.com",
   messagingSenderId: "382514116265"
 }
+
 
 @NgModule({
   declarations: [
@@ -35,6 +43,10 @@ export const config = {
     LogoutPage,
     RegisterPage,
     AddPage,
+    Home2Page,
+    Home3Page,
+    Home4Page,
+    Home5Page,
   ],
   imports: [
     BrowserModule,
@@ -53,10 +65,15 @@ export const config = {
     LogoutPage,
     RegisterPage,
     AddPage,
+    Home2Page,
+    Home3Page,
+    Home4Page,
+    Home5Page,
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Facebook,
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

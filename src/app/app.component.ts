@@ -2,10 +2,11 @@ import { Component,ViewChild  } from '@angular/core';
 import { Platform,MenuController,Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { Home5Page } from '../pages/home5/home5';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { Home1Page } from '../pages/home1/home1';
+
 import { AddPage } from '../pages/add/add';
 import { LogoutPage } from '../pages/logout/logout';
 import {RegisterPage} from'../pages/register/register';
@@ -13,7 +14,7 @@ import {RegisterPage} from'../pages/register/register';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = LoginPage;
+  rootPage:any =  LoginPage;
 
    page:Array<{ title:string,component:any}>
     @ViewChild(Nav) nav: Nav;

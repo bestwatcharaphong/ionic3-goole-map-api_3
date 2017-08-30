@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
-
-/**
- * Generated class for the RegisterPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @IonicPage()
 @Component({
@@ -14,9 +11,35 @@ import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angula
   templateUrl: 'register.html',
 })
 export class RegisterPage {
+listPost1:FirebaseListObservable<any>;
+ Add={
+              name:'',
+              lastname:'',
+              address:'',
+              email:'',
+              password:'',
+              phone:'',
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private viewCtrl:ViewController) {
+            }
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,private viewCtrl:ViewController,public af :AngularFireDatabase) {
+     this.listPost1 =  af.list("/Register_member");
   }
+    
+  onSavemember(Add){
+     let datapost1 = {
+               name:Add.name,
+               lastname:Add.lastname,
+               address:Add.address,
+               email:Add.email,
+               password:Add.password,
+               phone:Add.phone,
+     }
+           
+             this.listPost1.push(datapost1);
+              
+              
+        }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
