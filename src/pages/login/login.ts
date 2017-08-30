@@ -67,5 +67,6 @@ export class LoginPage {
         registerModal.present();
     }
    
+    
   
 }
